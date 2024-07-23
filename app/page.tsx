@@ -1,6 +1,7 @@
 import React from 'react'
-import Starting from "./components/starting"
-import Project from "./components/projects"
+import Starting from "./files/components/starting"
+import Project from "./files/components/projects"
+import Login from './files/login/login'
 
 
 const portfolio = () => {
@@ -9,10 +10,10 @@ const portfolio = () => {
 
       <main className='flex min-h-screen flex-col bg-black '>
 
-
-
+    <Login />
+{/* 
         <Starting />
-        <Project />
+        <Project /> */}
 
 
 
