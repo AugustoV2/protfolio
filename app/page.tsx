@@ -1,20 +1,22 @@
 import React from 'react'
-import Starting from "./files/components/starting"
-import Project from "./files/components/projects"
-import Login from './files/login/login'
 
+import Login from './login/login'
+import Dem from './login/dem'
+import Components from './components/page'
 
 const portfolio = () => {
   return (
     <div>
 
       <main className='flex min-h-screen flex-col bg-black '>
+       
+      {/* <Dem/> */}
+     <Login />  
+    {/*    */}
+ 
+        
 
-    <Login />
-{/* 
-        <Starting />
-        <Project /> */}
-
+    
 
 
 
