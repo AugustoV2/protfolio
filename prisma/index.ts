@@ -1,23 +1,14 @@
-//@ts-nocheck
-import { PrismaClient } from "@prisma/client/extension";
-import exp from "constants";
+import {PrismaClient} from '@prisma/client'
+const prisma = new PrismaClient()
+import {NextRequest,NextResponse} from 'next/server'
 
-let prisma: PrismaClient;
-declare global {
-    namespace NodeJS{
-        interface Global{
-            prisma: PrismaClient;
-        }
-    }
+
+export async function post(request:NextRequest){
+    const details = await request.json();
+    const detailedform = details.newdata;
+    const pr= prisma.user.create({
+        data:{...detailedform}
+    })
+    return NextResponse.json({ message: 'Hello - POST' });
 }
 
-if (process.env.NODE_ENV === "production") {
-    prisma = new PrismaClient();
-}   else {
-    if (!global.prisma) {
-        global.prisma = new PrismaClient();
-    }
-    prisma = global.prisma;
-}
-
-export default prisma;
