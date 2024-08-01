@@ -12,3 +12,11 @@ model User {
   email       String
   password String
 }
+
+model staff{
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  usertname String @unique
+  name       String
+  email       String
+  password String
+}

@@ -22,10 +22,13 @@ const login = () => {
 
 
 
-    async function logindetails() {
+    async function Logindetails() {
         const newdata = { email, password }
         try {
             const pr = await axios.post('/api/register', { newdata });
+            if (pr.status === 200) {
+                router.push('/components'); // Replace with your target page
+            }
         }
         catch (e) {
             if (e instanceof AxiosError) {
@@ -71,10 +74,9 @@ const login = () => {
                                 <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                             </div>
 
-                            <button type="button"
-                                onClick={logindetails}
-                                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" >
-                                Sign in</button>
+                            <button type="submit"
+                                onClick={Logindetails}
+                                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                 Don’t have an account yet? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
                             </p>
